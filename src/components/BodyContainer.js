@@ -44,6 +44,27 @@ class BodyContainer extends Component {
       })
   }
 
+  componentWillReceiveProps(nextProps) {
+    const fetchedState = {}
+    const ownerUsername = nextProps.match.params.ownerUsername
+      || this.state.username
+
+    fetchTweets(ownerUsername)
+      .then((tweets) => {
+        fetchedState.tweets = tweets
+      })
+      .then(() => fetchProfile(ownerUsername))
+      .then((profile) => {
+        fetchedState.numFollowers = profile.numFollowers
+        fetchedState.numFollowings = profile.numFollowings
+      })
+      .then(() => fetchFollowStatus(this.state.username, ownerUsername))
+      .then((status) => {
+        fetchedState.isFollowing = status
+        this.setState(fetchedState)
+      })
+  }
+
   addToTweetList(tweet) {
     this.setState({
       tweets: [
