@@ -13,7 +13,8 @@
     "bootstrap-sass": "^3.3.7",
     "classnames": "^2.2.5",
     "react": "^15.4.2",
-    "react-dom": "^15.4.2"
+    "react-dom": "^15.4.2",
+    "react-router-dom": "^4.0.0"
   },
   "devDependencies": {
     "babel-core": "^6.23.1",

@@ -25,17 +25,19 @@ class BodyContainer extends Component {
 
   componentDidMount() {
     const fetchedState = {}
+    const ownerUsername = this.props.match.params.ownerUsername
+      || this.state.username
 
-    fetchTweets(this.props.ownerUsername)
+    fetchTweets(ownerUsername)
       .then((tweets) => {
         fetchedState.tweets = tweets
       })
-      .then(() => fetchProfile(this.props.ownerUsername))
+      .then(() => fetchProfile(ownerUsername))
       .then((profile) => {
         fetchedState.numFollowers = profile.numFollowers
         fetchedState.numFollowings = profile.numFollowings
       })
-      .then(() => fetchFollowStatus(this.state.username, this.props.ownerUsername))
+      .then(() => fetchFollowStatus(this.state.username, ownerUsername))
       .then((status) => {
         fetchedState.isFollowing = status
         this.setState(fetchedState)
@@ -52,8 +54,10 @@ class BodyContainer extends Component {
   }
 
   toggleFollow() {
+    const ownerUsername = this.props.match.params.ownerUsername
+
     if (this.state.isFollowing) {
-      unfollow(this.state.username, this.props.ownerUsername)
+      unfollow(this.state.username, ownerUsername)
         .then((status) => {
           this.setState({
             isFollowing: status,
@@ -61,7 +65,7 @@ class BodyContainer extends Component {
           })
         })
     } else {
-      follow(this.state.username, this.props.ownerUsername)
+      follow(this.state.username, ownerUsername)
         .then((status) => {
           this.setState({
             isFollowing: status,
@@ -72,7 +76,9 @@ class BodyContainer extends Component {
   }
 
   render() {
-    const ownerUsername = this.props.ownerUsername || this.state.username
+    const ownerUsername = this.props.match.params.ownerUsername
+      || this.state.username
+
     const nameMap = {
       kaizerwing: 'Supasate Choochaisri',
       topscores: 'Arnupharp Viratanapanu',
@@ -105,6 +111,21 @@ class BodyContainer extends Component {
 
 BodyContainer.propTypes = {
   ownerUsername: PropTypes.string.isRequired,
+  match: PropTypes.shape({
+    params: PropTypes.object,
+    isExact: PropTypes.bool,
+    path: PropTypes.string,
+    url: PropTypes.stirng,
+  }),
+}
+
+BodyContainer.defaultProps = {
+  match: {
+    params: {},
+    isExact: false,
+    path: '',
+    url: '',
+  },
 }
 
 export default BodyContainer
