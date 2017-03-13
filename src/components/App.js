@@ -1,17 +1,8 @@
 import React from 'react'
-import Profile from './Profile'
+import BodyContainer from './BodyContainer'
 
 const App = () => (
-  <Profile
-    name="Supasate Choochaisri"
-    username="kaizerwing"
-    numTweets={250}
-    numFollowers={400}
-    numFollowings={600}
-    isFollowing
-    isOwnProfile={false}
-    toggleFollow={() => console.log('Toggle Click')}
-  />
+  <BodyContainer ownerUsername="kaizerwing" />
 )
 
 export default App
