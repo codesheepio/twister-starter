@@ -1,7 +1,13 @@
 import React, { Component, PropTypes } from 'react'
 import LeftPanel from './LeftPanel'
 import MainPanel from './MainPanel'
-import config from '../config'
+import {
+  fetchTweets,
+  fetchProfile,
+  fetchFollowStatus,
+  follow,
+  unfollow,
+} from '../helpers'
 
 class BodyContainer extends Component {
   constructor(props) {
@@ -14,33 +20,55 @@ class BodyContainer extends Component {
       isFollowing: false,
     }
     this.addToTweetList = this.addToTweetList.bind(this)
+    this.toggleFollow = this.toggleFollow.bind(this)
   }
 
   componentDidMount() {
-    const uri = `http://${config.api.host}:${config.api.port}/api/tweets`
-    const filter = `{ "where": { "username": "${this.state.username}" }}`
+    const fetchedState = {}
 
-    fetch(`${uri}?filter=${filter}`, {
-      mode: 'cors',
-    })
-      .then(response => response.json())
+    fetchTweets(this.props.ownerUsername)
       .then((tweets) => {
-        this.setState({
-          tweets,
-        })
+        fetchedState.tweets = tweets
+      })
+      .then(() => fetchProfile(this.props.ownerUsername))
+      .then((profile) => {
+        fetchedState.numFollowers = profile.numFollowers
+        fetchedState.numFollowings = profile.numFollowings
+      })
+      .then(() => fetchFollowStatus(this.state.username, this.props.ownerUsername))
+      .then((status) => {
+        fetchedState.isFollowing = status
+        this.setState(fetchedState)
       })
   }
 
   addToTweetList(tweet) {
-    const tweetWithId = tweet
-    tweetWithId.id = this.state.tweets.length
-
     this.setState({
       tweets: [
         ...this.state.tweets,
-        tweetWithId,
+        tweet,
       ],
     })
+  }
+
+  toggleFollow() {
+    if (this.state.isFollowing) {
+      unfollow(this.state.username, this.props.ownerUsername)
+        .then((status) => {
+          this.setState({
+            isFollowing: status,
+            numFollowers: this.state.numFollowers - 1,
+          })
+        })
+    } else {
+      follow(this.state.username, this.props.ownerUsername)
+        .then((status) => {
+          this.setState({
+            isFollowing: status,
+            numFollowers: this.state.numFollowers + 1,
+          })
+        })
+    }
   }
 
   render() {
@@ -61,7 +89,7 @@ class BodyContainer extends Component {
           username={ownerUsername}
           isOwnProfile={isOwnProfile}
           numTweets={this.state.tweets.length}
-          toggleFollow={() => console.log('Click Toggle')}
+          toggleFollow={this.toggleFollow}
         />
         <MainPanel
           name={ownerName}
