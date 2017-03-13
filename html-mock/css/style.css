@@ -1,0 +1,211 @@
+.container.body {
+  padding-top: 60px;
+  width: 900px;
+}
+
+.left-panel {
+  width: 290px;
+  float: left;
+}
+
+.main-panel {
+  width: 560px;
+  float: right;
+}
+
+.profile {
+  font-size: 1.4rem;
+}
+
+.profile .header {
+  padding: 10px 5px 10px 10px;
+  -webkit-border-top-left-radius: 5px;
+  -webkit-border-top-right-radius: 5px;
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-topright: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  background-color: #00bff3;
+}
+
+.profile .header a {
+  color: #fff;
+}
+
+.profile .header .name {
+  font-size: 2em;
+}
+
+.profile .detail {
+  border: 1px solid #9e9e9e;
+  background-color: #5d5d5d;
+  padding: 5px;
+}
+
+.profile .action {
+  border: 1px solid #9e9e9e;
+  border-top: 0px;
+  background-color: #5d5d5d;
+  padding: 10px;
+}
+
+.profile .last-section {
+  -webkit-border-bottom-right-radius: 5px;
+  -webkit-border-bottom-left-radius: 5px;
+  -moz-border-radius-bottomright: 5px;
+  -moz-border-radius-bottomleft: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.profile .col {
+  display:inline-block;
+  width: 32%;
+  padding-left: 2px;
+  padding-top: 5px;
+}
+
+.profile .col .text {
+  font-size: 1.2em;
+  color: #00bff3;
+}
+
+.profile .col .number {
+  font-size: 1.2em;
+}
+
+.new-tweet.first-item,
+.tweet.first-item {
+  border: 1px solid #9e9e9e;
+  -webkit-border-top-left-radius: 5px;
+  -webkit-border-top-right-radius: 5px;
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-topright: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.new-tweet {
+  padding: 10px 10px;
+  background-color: #cceef8;
+  border: 1px solid #00acda;
+  border-top: 0;
+}
+
+.tweet {
+  padding: 10px 10px;
+  border: 1px solid #9e9e9e;
+  border-top: 0;
+  background-color: #5d5d5d;
+}
+
+.tweet a {
+  text-decoration: none;
+}
+
+.tweet a:hover .name {
+  color: #B1B1B1;
+}
+
+.tweet .name {
+  color: #fff;
+  font-weight: bold;
+  display: inline;
+  font-size: 1.1em;
+}
+
+.tweet .screen-name {
+  color: #00bff3;
+  display: inline;
+  margin-left: 5px;
+}
+
+.tweet .tweet-text {
+  color: #e4e4e4;
+}
+
+.action .reply,
+.action .retweet {
+  display:inline-block;
+  margin: 5px 0px 0px 0px;
+
+  border-radius: 50%;
+  padding: 0.1em;
+  width: 2em;
+  height: 2em;
+  line-height: 1.8em;
+  border: 1px solid #e4e4e4;
+  text-align: center;
+}
+
+.action .reply:hover,
+.action .retweet:hover {
+  color: #bbdd8c;
+  cursor: pointer;
+  border: 1px solid #bbdd8c;
+}
+
+.action .reply:active,
+.action .retweet:active {
+  color: #628a2c;
+  cursor: pointer;
+}
+
+.modal-dialog .text-area-wrapper {
+  margin-bottom: 10px;
+}
+
+.modal-dialog .text-area {
+  border: 1px solid #9e9e9e;
+  background-color: #5d5d5d;
+}
+
+.login-form {
+    width: 400px;
+    background-color: #5d5d5d;
+    border: 1px solid #9e9e9e;
+    padding: 20px 30px;
+    margin: 100px auto;
+
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.login-form .logo {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #00bff3;
+}
+
+.login-form .login-label {
+  text-align: center;
+  margin: 20px auto;
+}
+
+.signup-form {
+    width: 400px;
+    background-color: #5d5d5d;
+    border: 1px solid #9e9e9e;
+    padding: 20px 30px;
+    margin: 100px auto;
+
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.signup-form .logo {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #00bff3;
+}
+
+.retweeted {
+  color: #b1b1b1;
+}
+
+body {
+  background-color: #333333;
+  color: #fff;
+}

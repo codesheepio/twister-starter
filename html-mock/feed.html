@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Twister</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom style -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet" >
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="feed.html">Twister</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <form class="navbar-form navbar-right" role="logout">
+            <a class="btn btn-primary" href="login.html">Log out</a>
+          </form>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container -->
+    </nav>
+
+    <div class="container body">
+      <div class="left-panel">
+        <div class="profile">
+          <div class="header">
+            <a href="me.html">
+              <div class="name">Arnupharp Viratanapanu</div>
+            </a>
+            <a href="me.html">
+              <div class="screen-name">@topscores</div>
+            </a>
+          </div>
+          <!-- /.header -->
+          <div class="detail last-section">
+            <div class="col">
+              <div class="text">Tweets</div>
+              <div class="number">327</div>
+            </div>
+            <div class="col">
+              <div class="text">Followers</div>
+              <div class="number">163</div>
+            </div>
+            <div class="col">
+              <div class="text">Following</div>
+              <div class="number">500</div>
+            </div>
+          </div>
+          <!-- /.detail -->
+        </div>
+        <!-- /.border-box .profile -->
+      </div>
+
+      <div class="main-panel">
+        <div class="new-tweet first-item">
+          <form class="form-horizontal">
+            <div class="form-group">
+              <div class="tweet-text col-sm-10">
+                <input type="text" class="form-control" id="tweetText" placeholder="What's happening">
+              </div>
+              <div class="col-sm-2">
+                <input type="button" class="btn btn-default" value="Tweet">
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="tweet-list">
+          <div class="tweet">
+            <a href="user.html">
+              <div class="name">
+                Supasate Choochaisri
+              </div>
+              <div class="screen-name">
+                @kaizerwing
+              </div>
+            </a>
+            <div class="tweet-text">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque id sollicitudin urna. Aenean vitae dapibus quam. Suspendisse volutpat.
+            </div>
+            <div class="action">
+              <div class="reply" data-toggle="modal" data-target="#replyModal"><i class="fa fa-reply"></i></div>
+            </div>
+          </div>
+          <div class="tweet">
+            <a href="user.html">
+              <div class="name">
+                Arnupharp Viratanapanu
+              </div>
+              <div class="screen-name">
+                @topscores
+              </div>
+            </a>
+            <div class="tweet-text">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque id sollicitudin urna. Aenean vitae dapibus quam. Suspendisse volutpat.
+            </div>
+            <div class="action">
+              <div class="reply" data-toggle="modal" data-target="#replyModal"><i class="fa fa-reply"></i></div>
+            </div>
+          </div>
+          <div class="tweet">
+            <a href="user.html">
+              <div class="name">
+                John Doe
+              </div>
+              <div class="screen-name">
+                @johndoe
+              </div>
+            </a>
+            <div class="tweet-text">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque id sollicitudin urna. Aenean vitae dapibus quam. Suspendisse volutpat.
+            </div>
+            <div class="action">
+              <div class="reply" data-toggle="modal" data-target="#replyModal"><i class="fa fa-reply"></i></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reply Modal -->
+    <div class="modal fade" id="replyModal" aria-labelledby="replyModalLabel" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="replyModalLabel">Reply</h4>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="text-area-wrapper">
+                <textarea class="text-area" rows="4" cols="52">@kaizerwing</textarea>
+              </div>
+              <div class="text-right">
+                <input type="submit" class="btn btn-default" value="Reply">
+                <input type="button" class="btn btn-danger" data-dismiss="modal" value="Close">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
