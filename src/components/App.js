@@ -1,8 +1,11 @@
 import React from 'react'
+import MainLayout from '../layouts/MainLayout'
 import BodyContainer from './BodyContainer'
 
 const App = () => (
-  <BodyContainer ownerUsername="topscores" />
+  <MainLayout>
+    <BodyContainer ownerUsername="topscores" />
+  </MainLayout>
 )
 
 export default App
