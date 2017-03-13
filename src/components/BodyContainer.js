@@ -23,31 +23,23 @@ class BodyContainer extends Component {
     this.toggleFollow = this.toggleFollow.bind(this)
   }
 
+
   componentDidMount() {
-    const fetchedState = {}
     const ownerUsername = this.props.match.params.ownerUsername
       || this.state.username
 
-    fetchTweets(ownerUsername)
-      .then((tweets) => {
-        fetchedState.tweets = tweets
-      })
-      .then(() => fetchProfile(ownerUsername))
-      .then((profile) => {
-        fetchedState.numFollowers = profile.numFollowers
-        fetchedState.numFollowings = profile.numFollowings
-      })
-      .then(() => fetchFollowStatus(this.state.username, ownerUsername))
-      .then((status) => {
-        fetchedState.isFollowing = status
-        this.setState(fetchedState)
-      })
+    this.fetchData(ownerUsername)
   }
 
   componentWillReceiveProps(nextProps) {
-    const fetchedState = {}
     const ownerUsername = nextProps.match.params.ownerUsername
       || this.state.username
+
+    this.fetchData(ownerUsername)
+  }
+
+  fetchData(ownerUsername) {
+    const fetchedState = {}
 
     fetchTweets(ownerUsername)
       .then((tweets) => {
@@ -131,7 +123,7 @@ class BodyContainer extends Component {
 }
 
 BodyContainer.propTypes = {
-  ownerUsername: PropTypes.string.isRequired,
+  ownerUsername: PropTypes.string,
   match: PropTypes.shape({
     params: PropTypes.object,
     isExact: PropTypes.bool,
@@ -141,6 +133,7 @@ BodyContainer.propTypes = {
 }
 
 BodyContainer.defaultProps = {
+  ownerUsername: '',
   match: {
     params: {},
     isExact: false,
