@@ -1,0 +1,23 @@
+{
+  "env": {
+    "node": true,
+    "browser": true,
+    "es6": true,
+  },
+  "extends": "airbnb",
+  "plugins": [
+    "import",
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true,
+    },
+  },
+  "rules": {
+    "semi": ["error", "never"],
+    "class-methods-use-this": "off",
+    "react/jsx-filename-extension": ["warn", { "extensions": [".js", ".jsx"] }],
+    "react/prefer-stateless-function": "off",
+    "import/no-extraneous-dependencies": "off"
+  }
+}
