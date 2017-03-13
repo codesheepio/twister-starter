@@ -1,18 +1,22 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { AppContainer } from 'react-hot-loader'
 import './styles/custom.scss'
 import './styles/main.scss'
+import App from './components/App'
 
-const App = () => (
-  <div className="container">
-    <div className="jumbotron">
-      <h1 style={{ color: '#000' }}>Hello, world!</h1>
-      <p>...</p>
-      <p>
-        <a className="btn btn-primary btn-lg" href="/">Learn more</a>
-      </p>
-    </div>
-  </div>
-)
+const render = (Component) => {
+  ReactDOM.render(
+    <AppContainer>
+      <Component />
+    </AppContainer>,
+    document.getElementById('react-root'))
+}
 
-ReactDOM.render(<App />, document.getElementById('react-root'))
+render(App)
+
+if (module.hot) {
+  module.hot.accept('./components/App', () => {
+    render(App)
+  })
+}

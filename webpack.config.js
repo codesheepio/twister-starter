@@ -4,19 +4,27 @@ const webpack = require('webpack')
 module.exports = {
   devtool: 'eval-source-map',
   entry: [
+    // activate HRM for React
+    'react-hot-loader/patch',
+    // bundle the client for webpack-dev-server
+    // and connect to the provided endpoint
+    'webpack-dev-server/client?http://localhost:8080',
+    // bundle the client for hot reloading
+    // only- means to only hot reload for successful updates
+    'webpack/hot/only-dev-server',
+    // the entry point of our app
     path.resolve('src', 'index.js'),
   ],
   output: {
     filename: 'bundle.js',
-    path: path.resolve('dist'),
+    path: path.resolve(__dirname, 'dist'),
     publicPath: '/dist/',
   },
   module: {
     rules: [
       {
         test: /\.js$/,
-        exclude: /node_modules/,
-        use: 'babel-loader',
+        use: ['react-hot-loader/webpack', 'babel-loader'],
       },
       {
         test: /\.scss$/,
@@ -30,7 +38,11 @@ module.exports = {
     ],
   },
   plugins: [
+    // enable HRM globally
     new webpack.HotModuleReplacementPlugin(),
+
+    // prints more readable module names in the browser console on HMR updates
+    new webpack.NamedModulesPlugin(),
   ],
   devServer: {
     hot: true,
