@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const NavBar = () => (
   <nav className="navbar navbar-default navbar-fixed-top">
@@ -16,7 +17,7 @@ const NavBar = () => (
           <span className="icon-bar" />
           <span className="icon-bar" />
         </button>
-        <a className="navbar-brand" href="/">Twister </a>
+        <Link to="/" className="navbar-brand">Twister</Link>
       </div>
     </div>
   </nav>
