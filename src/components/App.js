@@ -1,12 +1,13 @@
 import React from 'react'
-import Tweet from './Tweet'
+import TweetList from './TweetList'
+
+const tweets = [
+  { id: 0, name: 'Supasate Choochaisri', username: 'kaizerwing', tweetText: 'Lorem Ipsum...' },
+  { id: 1, name: 'Arnupharp Viratanapanu', username: 'topscores', tweetText: 'Lorem Ipsum...' },
+]
 
 const App = () => (
-  <Tweet
-    name="Supasate Choochaisri"
-    username="kaizerwing"
-    tweetText="lorem ipsum"
-  />
+  <TweetList tweets={tweets} />
 )
 
 export default App
