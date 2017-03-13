@@ -1,15 +1,12 @@
 import React from 'react'
+import Tweet from './Tweet'
 
 const App = () => (
-  <div className="container">
-    <div className="jumbotron">
-      <h1 style={{ color: '#000' }}>Hello, world!</h1>
-      <p>...</p>
-      <p>
-        <a className="btn btn-primary btn-lg" href="/">Learn more</a>
-      </p>
-    </div>
-  </div>
+  <Tweet
+    name="Supasate Choochaisri"
+    username="kaizerwing"
+    tweetText="lorem ipsum"
+  />
 )
 
 export default App
