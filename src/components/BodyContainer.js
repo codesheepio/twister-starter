@@ -99,6 +99,7 @@ class BodyContainer extends Component {
     }
     const ownerName = nameMap[[ownerUsername]]
     const isOwnProfile = this.state.username === ownerUsername
+    const enableTweet = isOwnProfile && !this.props.match
 
     return (
       <div className="body container">
@@ -115,7 +116,7 @@ class BodyContainer extends Component {
           username={ownerUsername}
           tweets={this.state.tweets}
           addToTweetList={this.addToTweetList}
-          enableTweet={isOwnProfile}
+          enableTweet={enableTweet}
         />
       </div>
     )
