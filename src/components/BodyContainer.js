@@ -115,7 +115,7 @@ class BodyContainer extends Component {
           username={ownerUsername}
           tweets={this.state.tweets}
           addToTweetList={this.addToTweetList}
-          enableTweet={isOwnProfile}
+          enableTweet={this.props.match.params.ownerUsername === undefined}
         />
       </div>
     )
