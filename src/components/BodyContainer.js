@@ -25,17 +25,17 @@ class BodyContainer extends Component {
 
   componentDidMount() {
     const fetchedState = {}
-
-    fetchTweets(this.props.ownerUsername)
+    const ownerUsername = this.props.ownerUsername || this.state.username
+    fetchTweets(ownerUsername)
       .then((tweets) => {
         fetchedState.tweets = tweets
       })
-      .then(() => fetchProfile(this.props.ownerUsername))
+      .then(() => fetchProfile(ownerUsername))
       .then((profile) => {
         fetchedState.numFollowers = profile.numFollowers
         fetchedState.numFollowings = profile.numFollowings
       })
-      .then(() => fetchFollowStatus(this.state.username, this.props.ownerUsername))
+      .then(() => fetchFollowStatus(this.state.username, ownerUsername))
       .then((status) => {
         fetchedState.isFollowing = status
         this.setState(fetchedState)
@@ -96,7 +96,7 @@ class BodyContainer extends Component {
           username={ownerUsername}
           tweets={this.state.tweets}
           addToTweetList={this.addToTweetList}
-          enableTweet={isOwnProfile}
+          enableTweet={this.props.ownerUsername === undefined}
         />
       </div>
     )

@@ -4,7 +4,7 @@ import BodyContainer from './BodyContainer'
 
 const App = () => (
   <MainLayout>
-    <BodyContainer ownerUsername="topscores" />
+    <BodyContainer ownerUsername="kaizerwing" />
   </MainLayout>
 )
 
