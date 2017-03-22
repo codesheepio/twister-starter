@@ -8,7 +8,7 @@ const TweetList = ({ tweets }) => (
 )
 
 TweetList.propTypes = {
-  tweets: PropTypes.arrayOf(PropTypes.object),
+  tweets: PropTypes.arrayOf(PropTypes.shape(Tweet.propTypes)),
 }
 
 TweetList.defaultProps = {
